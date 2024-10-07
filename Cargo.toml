@@ -1,6 +1,8 @@
 [package]
-name = "app"
+name = "Nautilus"
 version = "0.1.0"
 edition = "2021"
+license = "MIT"
 
 [dependencies]
+rlua = "0.20.1"
