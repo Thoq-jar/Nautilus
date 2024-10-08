@@ -1,20 +1,19 @@
 mod parser;
 mod version;
 mod engine;
+mod utils;
 
 use rlua::Result;
 use std::env::args;
-use std::process::exit;
 use crate::parser::parse;
+use crate::utils::args_error;
 
 fn main() -> Result<()> {
     let args: Vec<String> = args().collect();
     if args.len() < 2 {
-        eprintln!("[Nautilus/Usage] nautilus <script.lua> or nautilus version");
-        exit(1);
+        args_error();
     }
 
-    let command: &String = &args[1];
-    parse(command);
+    parse(args);
     Ok(())
 }
